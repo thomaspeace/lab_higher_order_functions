@@ -45,12 +45,25 @@ ScranAdvisor.prototype.mostCommonCuisine = function () {
     // not the most elegant way
     let mostCommon = Object.values(cuisineObject).sort().reverse()[0];
     return Object.keys(cuisineObject).find(key => cuisineObject[key] === mostCommon);
-    
+}
+
+ScranAdvisor.prototype.searchForSubstringInRestaurant = function (substring) {
+    const allRestaurants = scranAdvisor.getAllNames();
+    const namesContainingSubstring = [];
+    for(restaurant of allRestaurants){
+        restaurantLower = restaurant.toLowerCase();
+        // if the restaurant name contains the substring, add it to the array namesContainingSubstring
+        if(restaurantLower.indexOf(substring) !== -1){
+            namesContainingSubstring.push(restaurant);
+        }
+    }
+    return namesContainingSubstring;
 }
 
 
 let scranAdvisor = new ScranAdvisor(restaurants)
 console.log(scranAdvisor.mostCommonCuisine());
+console.log(scranAdvisor.searchForSubstringInRestaurant("ru"))
 
 
 

@@ -130,8 +130,10 @@ describe('ScranAdvisor', () => {
       expect(actual).toEqual(expected);
     })
 
-    test.skip('can find restaurant with substring', () => {
-
+    test('can find restaurant with substring', () => {
+      const expected = [ 'The Brunch Club', "Rudy's Pizza", 'Humble Crumble Camden' ];
+      const actual = scranAdvisor.searchForSubstringInRestaurant("ru")
+      expect(actual).toEqual(expected);
     })
 
 })
